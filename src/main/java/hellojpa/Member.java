@@ -1,9 +1,6 @@
 package hellojpa;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 //@Table(name="MBR")  //DB 테이블의 이름이 MBR과 동일하게 나감
@@ -11,6 +8,7 @@ import javax.persistence.Table;
 public class Member {
     @Id
     private Long id;
+    @Column(unique = true,length = 10)  //unique 제약조건, 10자까지
     private String name;
 
 
