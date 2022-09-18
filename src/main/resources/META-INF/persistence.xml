@@ -15,7 +15,8 @@
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.format_sql" value="true"/>
             <property name="hibernate.use_sql_comments" value="true"/>
-            <property name="hibernate.hbm2ddl.auto" value="create" />   <!--            DDL문 자동생성-->
+            <property name="hibernate.hbm2ddl.auto" value="create" />
+<!--           <property name="hibernate.hbm2ddl.auto" value="create" />             DDL문 자동생성     -->
 <!--            <property name="hibernate.hbm2ddl.auto" value="create-drop" />   create와 같으나, 종료시점에 테이블 drop (test시 사용)-->
 <!--            <property name="hibernate.hbm2ddl.auto" value="update" /> 컬럼 변경사항 반영 -->
 <!--            <property name="hibernate.hbm2ddl.auto" value="validate" /> 매핑 잘 되었는지 확인-->
