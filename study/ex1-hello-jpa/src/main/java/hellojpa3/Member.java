@@ -4,7 +4,7 @@ import org.hibernate.annotations.ManyToAny;
 
 import javax.persistence.*;
 
-@Entity
+//@Entity
 public class Member {   //id, name
 
     @Id @GeneratedValue
