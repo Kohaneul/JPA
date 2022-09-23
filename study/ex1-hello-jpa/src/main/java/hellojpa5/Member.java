@@ -9,12 +9,12 @@ public class Member {
     @GeneratedValue
     private Long id;
 
-    @OneToOne
-    @JoinColumn(name = "LOCKER_ID")
-    private Locker locker;
+
     @Column(name="USER_NAME")
     private String userName;
-
+    @ManyToOne
+    @JoinColumn(name="TEAM_ID")
+    private Team team;
 
     public Long getId() {
         return id;
@@ -24,13 +24,6 @@ public class Member {
         this.id = id;
     }
 
-    public Locker getLocker() {
-        return locker;
-    }
-
-    public void setLocker(Locker locker) {
-        this.locker = locker;
-    }
 
     public String getUserName() {
         return userName;
