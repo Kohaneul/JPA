@@ -12,8 +12,8 @@ public class Member extends BaseEntity{
 
     @Column(name="USER_NAME")
     private String userName;
-    @ManyToOne
-    @JoinColumn(name="TEAM_ID",insertable = false,updatable = false)
+    @ManyToOne(fetch=FetchType.LAZY)    //프록시객체로 조회한다... Member 클래스만 db에서 조회
+    @JoinColumn(name="TEAM_ID")
     private Team team;
 
 
@@ -32,5 +32,13 @@ public class Member extends BaseEntity{
 
     public void setUserName(String userName) {
         this.userName = userName;
+    }
+
+    public Team getTeam() {
+        return team;
+    }
+
+    public void setTeam(Team team) {
+        this.team = team;
     }
 }

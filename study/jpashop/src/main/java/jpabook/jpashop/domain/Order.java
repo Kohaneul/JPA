@@ -9,7 +9,7 @@ import java.util.List;
 
 @Entity
 @Table(name="ORDERS")
-public class Order {    //DB에서 Order는 예약어로 되어있는 경우도 있음
+public class Order extends BaseEntity {    //DB에서 Order는 예약어로 되어있는 경우도 있음
     @Id
     @GeneratedValue
     @Column(name="ORDER_ID")
