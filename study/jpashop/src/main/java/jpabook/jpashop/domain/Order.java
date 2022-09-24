@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import static javax.persistence.CascadeType.*;
+
 @Entity
 @Table(name="ORDERS")
 public class Order extends BaseEntity {    //DB에서 Order는 예약어로 되어있는 경우도 있음
@@ -14,14 +16,14 @@ public class Order extends BaseEntity {    //DB에서 Order는 예약어로 되�
     @GeneratedValue
     @Column(name="ORDER_ID")
     private Long id;
-    @ManyToOne  //한명의 회원이 여러개의 주문
+    @ManyToOne(fetch = FetchType.LAZY)  //한명의 회원이 여러개의 주문
     @JoinColumn(name = "MEMBER_ID")
     private Member member;
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY,cascade = ALL)
     @JoinColumn(name="DELIVERY_ID")
     private Delivery delivery;
 
-    @OneToMany(mappedBy = "order")
+    @OneToMany(mappedBy = "order",cascade = ALL)
     private List<OrderItem> orderItems = new ArrayList<>();
 
     private LocalDateTime orderDate;
