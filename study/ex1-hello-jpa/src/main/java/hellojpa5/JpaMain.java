@@ -29,20 +29,27 @@
 //            em.persist(team1);
 //
 //
-//
-//
-//            Member member1 = new Member();
-//            member1.setUserName("member1");
-//            member1.setTeam(team1);
-//            em.persist(member1);
-//
-//            Member member2 = new Member();
-//            member2.setUserName("member2");
-//            member2.setTeam(team);
-//            em.persist(member2);
-//
-//            em.flush();
-//            em.clear();
+//            Member member = new Member();
+//            member.setUserName("helllo");
+//           member.setAddress(new Address("city","street","zipCode"));
+//           member.setPeriod(new Period());
+//           em.persist(member);
+////
+////
+////
+////
+////            Member member1 = new Member();
+////            member1.setUserName("member1");
+////            member1.setTeam(team1);
+////            em.persist(member1);
+////
+////            Member member2 = new Member();
+////            member2.setUserName("member2");
+////            member2.setTeam(team);
+////            em.persist(member2);
+////
+////            em.flush();
+////            em.clear();
 //
 ////            List<Member> members = em.createQuery("select m from Member m join fetch m.team", Member.class).getResultList();
 //
