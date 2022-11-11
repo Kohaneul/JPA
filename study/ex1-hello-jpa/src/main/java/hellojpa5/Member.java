@@ -1,8 +1,14 @@
 package hellojpa5;
 
 
+import hellojpa8.AddressEntity;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Member{
@@ -26,6 +32,32 @@ public class Member{
     @Embedded
     private Address homeAddress;
 
+    @ElementCollection  //값 타입 컬렉션 =>영속성 전이 cascade + 고아객체 제거기능 필수로 가짐
+    @CollectionTable(name = "FAVORITE_FOOD",joinColumns = @JoinColumn(name="MEMBER_ID"))
+    @Column(name="FOOD_NAME")
+    private Set<String> favoriteFoods = new HashSet<>();
+
+
+    @OneToMany(cascade = CascadeType.ALL,orphanRemoval = true)
+    @JoinColumn(name="MEMBER_ID")
+    private List<AddressEntity> addressHistory = new ArrayList<>();
+
+    public Set<String> getFavoriteFoods() {
+        return favoriteFoods;
+    }
+
+
+    public void setFavoriteFoods(Set<String> favoriteFoods) {
+        this.favoriteFoods = favoriteFoods;
+    }
+
+    public List<AddressEntity> getAddressHistory() {
+        return addressHistory;
+    }
+
+    public void setAddressHistory(List<AddressEntity> addressHistory) {
+        this.addressHistory = addressHistory;
+    }
 //    @Embedded   //주소 =>두개를 만들시,
 //    @AttributeOverrides({
 //            @AttributeOverride(name="city", column=@Column(name="WORK_CITY")),
